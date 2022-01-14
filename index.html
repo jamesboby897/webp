@@ -15,40 +15,44 @@
                 height: 100%;
                 width: 100%;
             }
-            audio{
-                display: none;
-            }
+            audio,
             .mute{
                 display: none;
             }
         </style>
     </head>
     <body>
-        <img id="cassuma" class="mute"
-                src="https://media.discordapp.net/attachments/267341119073812480/931444077512245258/yakuza-kiryu.gif"/>
-        <img id="cassuma2"
-                src="https://media.discordapp.net/attachments/267341119073812480/931444757819981824/kiryu-cigarette-moment.gif"/>
-        <audio autoplay loop>
+        <img id="a" class="mute" src="a.gif"/>
+        <img id="b" class="mute" src="b.gif"/>
+        <img id="c" class="mute" src="c.gif"/>
+                <audio autoplay loop>
                 <source src="https://cdn.discordapp.com/attachments/915292717423161385/931426257248346152/Baka_Mitai_Bar_Jazz_Version_with_Kiryu_singing_Relaxing_af_64_kbps.mp3" type="audio/mp3">
         </audio>
     </body>
     <script>
-        const kazuma = document.getElementById("cassuma");
-        const kazuma2 = document.getElementById("cassuma2");
+        const a = document.getElementById("a");
+        const b = document.getElementById("b");
+        const c = document.getElementById("c");
         const audio = document.getElementsByTagName("AUDIO")[0];
         document.addEventListener("pointermove", e => audio.play());
-        function alternateKazumas(){
-            if(kazuma.classList.contains("mute"))
-            {
-                kazuma.classList.remove("mute")
-                kazuma2.classList.add("mute");
-            }
-            else
-            {
-                kazuma.classList.add("mute")
-                kazuma2.classList.remove("mute");
-            }
+        function displaya(){
+            a.classList.remove("mute");
+            b.classList.add("mute");
+            c.classList.add("mute");
         }
-        setInterval(alternateKazumas,3000);
+        function displayb(){
+            a.classList.add("mute");
+            b.classList.remove("mute");
+            c.classList.add("mute");
+        }
+        function displayc(){
+            a.classList.add("mute");
+            b.classList.add("mute");
+            c.classList.remove("mute");
+        }
+        displaya();
+        setTimeout(displayb,22000);
+        setTimeout(displayc,44000);
+        setTimeout(displaya,66000);
     </script>
 </html>
