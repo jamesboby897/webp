@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+            }
+            body{
+                height: 100vh;
+                width: 100vw;
+                overflow: hidden;
+            }
+            audio{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <video autoplay muted loop>
+            <source src="a.webm" type="video/webm">
+        </video>
+                <audio autoplay loop>
+                <source src="b.mp3" type="audio/mp3">
+        </audio>
+    </body>
+    <script>
+        const audio = document.getElementsByTagName("AUDIO")[0];
+        document.addEventListener("pointermove", e => audio.play());
+    </script>
+</html>
