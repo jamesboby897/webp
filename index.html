@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>James Boby</title>
+        <title>James</title>
         <style>
             *{
                 margin: 0;
@@ -22,30 +22,40 @@
         </style>
     </head>
     <body>
-        <div style="position: relative;">
+        <div id="d" style="position: relative;">
             <h1 id="t" style="color: white;text-align: center; padding: 50px 0; font-size: 500%;">
-                Tap the screen.
+                Tap the screen
             </h1>
-            <video id="v" height="1080" width="1920" muted loop>
-                <source src="https://cdn.discordapp.com/attachments/915292717423161385/943082605081923584/out.mp4" type="video/mp4; codecs=av01.0.05M.08">
-                <source src="https://cdn.discordapp.com/attachments/915292717423161385/943063086858924042/a.webm" type="video/webm">
-            </video>
         </div>
-        <audio autoplay loop>
+        <audio loop>
             <source src="https://cdn.discordapp.com/attachments/915292717423161385/943084976600141834/a.ogg">
             <source src="https://cdn.discordapp.com/attachments/915292717423161385/943084976327495681/a.caf">
         </audio>
     </body>
     <script>
-        var v = document.getElementById("v");
         var t = document.getElementById("t");
+        var d = document.getElementById("d");
         const audio = document.getElementsByTagName("AUDIO")[0];
         function disp(){
             t.style.display = "none";
             audio.play();
+            var v = document.createElement("video");
+            v.setAttribute("height","1080");
+            v.setAttribute("width","1920");
+            v.setAttribute("muted","muted");
+            v.setAttribute("loop","loop");
+            d.appendChild(v);
+            var s1 = document.createElement("source");
+            s1.setAttribute("src","https://cdn.discordapp.com/attachments/915292717423161385/943082605081923584/out.mp4");
+            s1.setAttribute("type","video/mp4; codecs=av01.0.05M.08");
+            v.appendChild(s1);
+            var s2 = document.createElement("source");
+            s2.setAttribute("src","https://cdn.discordapp.com/attachments/915292717423161385/943063086858924042/a.webm");
+            s2.setAttribute("type","video/webm");
+            v.appendChild(s2);
+            if((navigator.userAgent.indexOf("Android") != -1)||(navigator.userAgent.indexOf("like Mac"))) v.style.paddingTop = "50vh";
             v.play();
         }
         document.addEventListener("click", e => disp());
-        if((navigator.userAgent.indexOf("Android") != -1)||(navigator.userAgent.indexOf("like Mac"))) v.style.paddingTop = "50vh";
     </script>
 </html>
