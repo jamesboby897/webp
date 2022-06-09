@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Sad Kazuma Noises</title>
+        <title>James Boby</title>
         <style>
             *{
                 margin: 0;
@@ -11,24 +11,41 @@
                 height: 100vh;
                 width: 100vw;
                 overflow: hidden;
+                background-color: black;
             }
             audio{
                 display: none;
             }
+            video{
+                position: absolute;
+            }
         </style>
     </head>
     <body>
-        <video height="1080" width="1920" autoplay muted loop>
-            <source src="https://cdn.discordapp.com/attachments/915292717423161385/943082605081923584/out.mp4" type="video/mp4; codecs=av01.0.05M.08">
-            <source src="https://cdn.discordapp.com/attachments/915292717423161385/943063086858924042/a.webm" type="video/webm">
-        </video>
+        <div style="position: relative;">
+            <h1 id="t" style="color: white;text-align: center; padding: 50px 0; font-size: 500%;">
+                Tap the screen.
+            </h1>
+            <video id="v" height="1080" width="1920" muted loop>
+                <source src="https://cdn.discordapp.com/attachments/915292717423161385/943082605081923584/out.mp4" type="video/mp4; codecs=av01.0.05M.08">
+                <source src="https://cdn.discordapp.com/attachments/915292717423161385/943063086858924042/a.webm" type="video/webm">
+            </video>
+        </div>
         <audio autoplay loop>
             <source src="https://cdn.discordapp.com/attachments/915292717423161385/943084976600141834/a.ogg">
             <source src="https://cdn.discordapp.com/attachments/915292717423161385/943084976327495681/a.caf">
         </audio>
     </body>
     <script>
+        var v = document.getElementById("v");
+        var t = document.getElementById("t");
         const audio = document.getElementsByTagName("AUDIO")[0];
-        document.addEventListener("pointermove", e => audio.play());
+        function disp(){
+            t.style.display = "none";
+            audio.play();
+            v.play();
+        }
+        document.addEventListener("click", e => disp());
+        if((navigator.userAgent.indexOf("Android") != -1)||(navigator.userAgent.indexOf("like Mac"))) v.style.paddingTop = "50vh";
     </script>
 </html>
