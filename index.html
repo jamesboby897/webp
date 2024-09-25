@@ -26,33 +26,21 @@
             <h1 id="t" style="color: white;text-align: center; padding: 50px 0; font-size: 500%;">
                 Tap the screen
             </h1>
+            <video id="v" style="display:none;" height="1080" width="1920" muted="muted" loop="loop" style="padding-top: 50vh;"><source src="https://github.com/jamesboby897/webp/raw/refs/heads/gh-pages/a.mp4" type="video/mp4; codecs=av01.0.05M.08"></video>
         </div>
         <audio loop>
             <source src="https://github.com/jamesboby897/webp/raw/refs/heads/gh-pages/a.ogg">
         </audio>
     </body>
     <script>
-        var t = document.getElementById("t");
-        var d = document.getElementById("d");
+        let t = document.getElementById("t");
+        let d = document.getElementById("d");
         const audio = document.getElementsByTagName("AUDIO")[0];
         function disp(){
             t.style.display = "none";
             audio.play();
-            var v = document.createElement("video");
-            v.setAttribute("height","1080");
-            v.setAttribute("width","1920");
-            v.setAttribute("muted","muted");
-            v.setAttribute("loop","loop");
-            d.appendChild(v);
-            var s1 = document.createElement("source");
-            s1.setAttribute("src","https://github.com/jamesboby897/webp/raw/refs/heads/gh-pages/a.mp4");
-            s1.setAttribute("type","video/mp4; codecs=av01.0.05M.08");
-            v.appendChild(s1);
-            var s2 = document.createElement("source");
-            s2.setAttribute("src","https://cdn.discordapp.com/attachments/915292717423161385/943063086858924042/a.webm");
-            s2.setAttribute("type","video/webm");
-            v.appendChild(s2);
-            if((navigator.userAgent.indexOf("Android") != -1)||(navigator.userAgent.indexOf("like Mac"))) v.style.paddingTop = "50vh";
+            let v = document.getElementById("v");
+            v.style.display = "block";
             v.play();
         }
         document.addEventListener("click", e => disp());
