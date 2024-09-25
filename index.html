@@ -33,7 +33,8 @@
         </audio>
     </body>
     <script>
-        let t = document.getElementById("t");
+        document.addEventListener("DOMContentLoaded", (event) => {
+          let t = document.getElementById("t");
         let d = document.getElementById("d");
         const audio = document.getElementsByTagName("AUDIO")[0];
         function disp(){
@@ -44,5 +45,6 @@
             v.play();
         }
         document.addEventListener("click", e => disp());
+        });
     </script>
 </html>
